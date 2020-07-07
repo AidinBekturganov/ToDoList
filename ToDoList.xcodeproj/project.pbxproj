@@ -16,7 +16,6 @@
 		CE6D93AE24AB217400E9D7C2 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D93AD24AB217400E9D7C2 /* ChecklistItem.swift */; };
 		CE6D93B024AB2FB500E9D7C2 /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D93AF24AB2FB500E9D7C2 /* ToDoList.swift */; };
 		CE6D93B224AB598C00E9D7C2 /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D93B124AB598C00E9D7C2 /* AddItemTableViewController.swift */; };
-		CEF2DA1C24AF0A35007C9D3F /* CheckListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2DA1B24AF0A35007C9D3F /* CheckListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		CE6D93AD24AB217400E9D7C2 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		CE6D93AF24AB2FB500E9D7C2 /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
 		CE6D93B124AB598C00E9D7C2 /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
-		CEF2DA1B24AF0A35007C9D3F /* CheckListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckListTableViewCell.swift; path = ToDoList/CheckListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +46,6 @@
 		CE34C0B524AA3F2800353B1A = {
 			isa = PBXGroup;
 			children = (
-				CEF2DA1B24AF0A35007C9D3F /* CheckListTableViewCell.swift */,
 				CE34C0C024AA3F2800353B1A /* ToDoList */,
 				CE34C0BF24AA3F2800353B1A /* Products */,
 			);
@@ -150,7 +147,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEF2DA1C24AF0A35007C9D3F /* CheckListTableViewCell.swift in Sources */,
 				CE34C0C624AA3F2800353B1A /* ChecklistViewController.swift in Sources */,
 				CE34C0C224AA3F2800353B1A /* AppDelegate.swift in Sources */,
 				CE6D93B224AB598C00E9D7C2 /* AddItemTableViewController.swift in Sources */,

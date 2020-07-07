@@ -23,20 +23,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYn-An-nVQ">
-                                            <rect key="frame" x="50" y="12" width="277" height="21"/>
+                                            <rect key="frame" x="71" y="12" width="237" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1003" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="correct" highlightedImage="emptymark" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j0s-eX-vKI">
-                                            <rect key="frame" x="16" y="9" width="26" height="26"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrq-mV-z9c">
+                                            <rect key="frame" x="16" y="13" width="29" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="toDoTextLabel" destination="eYn-An-nVQ" id="LO6-gt-oZ9"/>
                                     <segue destination="aQh-gi-EiQ" kind="show" identifier="EditItemSegue" trigger="accessoryAction" id="M2A-lv-kvY"/>
                                 </connections>
                             </tableViewCell>
@@ -148,8 +150,4 @@
     <inferredMetricsTieBreakers>
         <segue reference="M2A-lv-kvY"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="correct" width="256" height="256"/>
-        <image name="emptymark" width="256" height="256"/>
-    </resources>
 </document>
