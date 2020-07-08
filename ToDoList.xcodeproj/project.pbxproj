@@ -64,8 +64,8 @@
 			children = (
 				CE34C0C124AA3F2800353B1A /* AppDelegate.swift */,
 				CE34C0C324AA3F2800353B1A /* SceneDelegate.swift */,
-				CE34C0C524AA3F2800353B1A /* ChecklistViewController.swift */,
 				CE6D93B124AB598C00E9D7C2 /* AddItemTableViewController.swift */,
+				CE34C0C524AA3F2800353B1A /* ChecklistViewController.swift */,
 				CE6D93AD24AB217400E9D7C2 /* ChecklistItem.swift */,
 				CE6458AB24B4A29D00AF5515 /* Main.storyboard */,
 				CE34C0CA24AA3F2900353B1A /* Assets.xcassets */,

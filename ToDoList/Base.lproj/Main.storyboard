@@ -6,35 +6,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Checklist-->
+        <!--Do Your Day-->
         <scene sceneID="jcJ-6H-QjZ">
             <objects>
                 <tableViewController id="OWd-so-0zY" customClass="ChecklistViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OeE-IW-6WP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OeE-IW-6WP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.49434357880000002" green="0.91011863950000005" blue="0.71304136510000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="ept-Gu-1pn" customClass="CheckListTableViewCell" customModule="ToDoList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationLevel="17" indentationWidth="10" reuseIdentifier="ChecklistItem" id="ept-Gu-1pn" customClass="CheckListTableViewCell" customModule="ToDoList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ept-Gu-1pn" id="X8f-BY-fIb" customClass="UITextView">
-                                    <rect key="frame" x="0.0" y="0.0" width="316" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="316" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYn-An-nVQ">
-                                            <rect key="frame" x="71" y="12" width="237" height="22"/>
+                                            <rect key="frame" x="65" y="12" width="243" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                            <color key="textColor" red="0.0096067683771252632" green="0.062194474041461945" blue="0.98555821180343628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOx-2b-iok">
-                                            <rect key="frame" x="16" y="12" width="27" height="24"/>
+                                            <rect key="frame" x="7" y="7" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.65443539619445801" green="0.92004972696304321" blue="0.83029085397720337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="aQh-gi-EiQ" kind="show" identifier="EditItemSegue" trigger="accessoryAction" id="M2A-lv-kvY"/>
                                 </connections>
@@ -45,8 +47,8 @@
                             <outlet property="delegate" destination="OWd-so-0zY" id="OdN-S4-Bcu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklist" id="Kc9-kE-XeY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eE5-FW-ka3">
+                    <navigationItem key="navigationItem" title="Do Your Day" id="Kc9-kE-XeY">
+                        <barButtonItem key="rightBarButtonItem" image="paperclip" catalog="system" id="eE5-FW-ka3">
                             <connections>
                                 <segue destination="aQh-gi-EiQ" kind="show" identifier="AddItemSegue" id="gvc-53-vO8"/>
                             </connections>
@@ -58,13 +60,15 @@
             </objects>
             <point key="canvasLocation" x="780" y="-12.143928035982009"/>
         </scene>
-        <!--Title-->
+        <!--Do Your Best-->
         <scene sceneID="8fr-qC-MUD">
             <objects>
                 <tableViewController id="aQh-gi-EiQ" customClass="ItemDetailViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="73U-ay-dAv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.49434357880000002" green="0.91011863950000005" blue="0.71304136510000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="Z04-Z6-FQe">
                                 <cells>
@@ -78,6 +82,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n0P-wC-JSH">
                                                     <rect key="frame" x="15" y="4" width="313" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.65443539619445801" green="0.92004972696304321" blue="0.83029085397720337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
@@ -87,6 +92,7 @@
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.65443539619445801" green="0.92004972696304321" blue="0.83029085397720337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -96,19 +102,19 @@
                             <outlet property="delegate" destination="aQh-gi-EiQ" id="gAT-uS-BNt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="2C4-Qd-VJa">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2G1-7X-f01">
+                    <navigationItem key="navigationItem" title="Do Your Best" id="2C4-Qd-VJa">
+                        <barButtonItem key="leftBarButtonItem" image="arrowshape.turn.up.left.fill" catalog="system" id="2G1-7X-f01">
                             <connections>
                                 <action selector="cancelButton:" destination="aQh-gi-EiQ" id="ZJG-pN-u3s"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem enabled="NO" title="Done" id="PRw-pA-xqi">
+                            <barButtonItem enabled="NO" title="Done" image="mag1x" id="PRw-pA-xqi">
                                 <connections>
                                     <action selector="doneButton:" destination="aQh-gi-EiQ" id="KKm-OU-Aeg"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Delete" id="khq-e0-IMN">
+                            <barButtonItem title="Delete" image="trash1x" id="khq-e0-IMN">
                                 <connections>
                                     <action selector="deleteButton:" destination="aQh-gi-EiQ" id="vBq-7t-Gi4"/>
                                 </connections>
@@ -118,6 +124,7 @@
                     <connections>
                         <outlet property="addBarButton" destination="PRw-pA-xqi" id="SRe-WD-oNW"/>
                         <outlet property="cancelBarButton" destination="2G1-7X-f01" id="sez-lk-JDl"/>
+                        <outlet property="deleteButtonOutlet" destination="khq-e0-IMN" id="nbR-1f-Mga"/>
                         <outlet property="textField" destination="n0P-wC-JSH" id="eb5-yh-qdI"/>
                     </connections>
                 </tableViewController>
@@ -147,4 +154,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="M2A-lv-kvY"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="mag1x" width="30" height="30"/>
+        <image name="paperclip" catalog="system" width="128" height="128"/>
+        <image name="trash1x" width="30" height="30"/>
+    </resources>
 </document>

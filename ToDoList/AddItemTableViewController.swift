@@ -25,11 +25,10 @@ class ItemDetailViewController: UITableViewController {
     let default1 = UserDefaults.standard
     var flag = true
    
-    
+
    
     
-   
-    
+    @IBOutlet weak var deleteButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
@@ -54,7 +53,7 @@ class ItemDetailViewController: UITableViewController {
                 }
                 item.checked = false
                 delegate?.itemDetailViewController(self, didFinishAddingItem: item)
-                storeTheData(item: item)
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(todoList?.toDos), forKey:"items")
 
             }
             
@@ -66,6 +65,7 @@ class ItemDetailViewController: UITableViewController {
        }
     override func viewDidLoad() {
         super.viewDidLoad()
+        todoList?.loadData()
         if let item = itemToEdit{
             title = "Edit item"
             textField.text = item.text
@@ -74,12 +74,7 @@ class ItemDetailViewController: UITableViewController {
         
         navigationItem.largeTitleDisplayMode = .never
     }
-    
-    
-    func storeTheData(item: ChecklistItem){
-           todoList?.userDefaultsArray.append(item.text)
-           default1.set(todoList?.userDefaultsArray, forKey: "items")
-       }
+
     
     override func viewWillAppear(_ animated: Bool) {
         textField.becomeFirstResponder()

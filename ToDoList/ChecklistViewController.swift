@@ -10,11 +10,10 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {
     var toDoList: ToDoList
-    let defaults = UserDefaults.standard
     var addItem: ItemDetailViewController
+    var checkMarkToggle: ChecklistItem
     
     
-   // @IBOutlet weak var checkMark: UIImageView!
     @IBAction func addItem(_ sender: Any) {
         let newRowIndex = toDoList.toDos.count
         _ = toDoList.newToDo()
@@ -30,6 +29,7 @@ class ChecklistViewController: UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         toDoList = ToDoList()
         addItem = ItemDetailViewController()
+        checkMarkToggle = ChecklistItem()
         super.init(coder: aDecoder)
     }
     
@@ -37,12 +37,9 @@ class ChecklistViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        toDoList.loadData()
+        checkMarkToggle.checked = !checkMarkToggle.checked
         navigationController?.navigationBar.prefersLargeTitles = true
-
-        
-    
-        
     }
   
 
@@ -53,24 +50,12 @@ class ChecklistViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
         
-        
-        
         let item = toDoList.toDos[indexPath.row]
-        if !toDoList.checkMarkUserDefaults.isEmpty{
-//            for i in toDoList.checkMarkUserDefaults{
-//                let checkmark = i
-//                item.checked = checkmark
-//                configureCheckmark(for: cell, with: item)
-//            }
-//            configureText(for: cell, with: item)
-            
-        }else{
             configureText(for: cell, with: item)
             configureCheckmark(for: cell, with: item)
-        }
-            
-                 
-        
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(toDoList.toDos), forKey:"items")
+
+
          return cell
     }
     
@@ -78,10 +63,14 @@ class ChecklistViewController: UITableViewController {
         
         if let cell = tableView.cellForRow(at: indexPath){
             
-            
                 let item = toDoList.toDos[indexPath.row]
+                item.toggleChecked()
                 configureCheckmark(for: cell, with: item)
                 tableView.deselectRow(at: indexPath, animated: true)
+                
+
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(toDoList.toDos), forKey:"items")
+
                 }
             
         }
@@ -100,33 +89,16 @@ class ChecklistViewController: UITableViewController {
         guard let checkmark = cell.viewWithTag(1004) as? UIImageView else { //given identifier in the main storyboard
           return
         }
-        //toDoList.checkMarkUserDefaults.append(item.checked)
-        if item.checked {
-            checkmark.image = UIImage(named: "correct")
-                let indexPath = tableView.indexPath(for: cell)
-                toDoList.checkMarkUserDefaults.remove(at: indexPath!.row)
-                toDoList.checkMarkUserDefaults.insert(item.checked, at: indexPath!.row)
-            
-            
-            
-        } else {
-          checkmark.image = UIImage(named: "emptymark")
-            let indexPath = tableView.indexPath(for: cell)
-            //let oldItem = toDoList.toDos[indexPath!.row]
-            if let index = indexPath?.row{
-                    toDoList.checkMarkUserDefaults.remove(at: index)
-                    toDoList.checkMarkUserDefaults.insert(item.checked, at: indexPath!.row)
-            }
-            
-            
+          if item.checked {
+            checkmark.image = UIImage(named: "correct1x")
 
-        }
+          }else {
+            checkmark.image = UIImage(named: "123")
+
+            }
         // item.checked - checked is the property of the Checklistitem class which is bool, by default it is false, also there is a func toggleChecked() for revercing the checked property
         // the if statement for switching position of the checkmark
-       print(toDoList.checkMarkUserDefaults)
-        
-        item.toggleChecked()
-        defaults.set(toDoList.checkMarkUserDefaults, forKey: "checkmark")
+   
 
     }
         
@@ -181,18 +153,15 @@ extension ChecklistViewController: ItemDetailViewControllerDelegate{
             let indexPath = IndexPath(row: index, section: 0)
             if flag{
                 toDoList.toDos.remove(at: indexPath.row)
-                toDoList.userDefaultsArray.remove(at: indexPath.row)
-                defaults.set(toDoList.userDefaultsArray, forKey: "items")
-                print("Array after deleting: \(toDoList.userDefaultsArray)")
                 let indexPaths = [indexPath]
                 tableView.deleteRows(at: indexPaths, with: .automatic)
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(toDoList.toDos), forKey:"items")
+
             }else{
                 if let cell = tableView.cellForRow(at: indexPath){
-                    toDoList.userDefaultsArray.remove(at: indexPath.row)
-                    toDoList.userDefaultsArray.insert(item.text, at: indexPath.row)
-                    defaults.set(toDoList.userDefaultsArray, forKey: "items")
-                    print("Array after deleting: \(toDoList.userDefaultsArray)")
                     configureText(for: cell, with: item) //updating the item
+                    UserDefaults.standard.set(try? PropertyListEncoder().encode(toDoList.toDos), forKey:"items")
+
                 }
             }
 
@@ -205,10 +174,7 @@ extension ChecklistViewController: ItemDetailViewControllerDelegate{
         if let index = toDoList.toDos.firstIndex(of: item) { //getting the index of upcoming item from additemviewcontroller
             let indexPath = IndexPath(row: index, section: 0)
             toDoList.toDos.remove(at: indexPath.row)
-            toDoList.checkMarkUserDefaults.remove(at: indexPath.row)
-            defaults.set(toDoList.checkMarkUserDefaults, forKey: "checkmark")
-            print(toDoList.checkMarkUserDefaults)
-            let indexPaths = [indexPath]
+                 let indexPaths = [indexPath]
             tableView.deleteRows(at: indexPaths, with: .automatic)
               
               
