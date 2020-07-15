@@ -12,7 +12,18 @@ class ChecklistViewController: UITableViewController {
     var toDoList: ToDoList
     var addItem: ItemDetailViewController
     var checkMarkToggle: ChecklistItem
-    
+    var searchController = UISearchController(searchResultsController: nil)
+    var searchIsEmpty: Bool{
+        guard let text = searchController.searchBar.text else {
+            return false
+        }
+        return text.isEmpty
+    }
+    var isFiltering: Bool{
+        searchController.isActive && !searchIsEmpty
+    }
+
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBAction func addItem(_ sender: Any) {
         let newRowIndex = toDoList.toDos.count
@@ -33,24 +44,63 @@ class ChecklistViewController: UITableViewController {
         super.init(coder: aDecoder)
     }
     
-  
+    func customizeNav(){
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.barTintColor = .white
+           navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+
+
+       }
+    
+  func sideMunes(){
+         
+         if revealViewController() != nil{
+             menuButton.target = revealViewController()
+             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+             revealViewController().rearViewRevealWidth = 250
+             
+             
+             
+             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+
+             
+         }
+         
+     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        sideMunes()
+        customizeNav()
         toDoList.loadData()
         checkMarkToggle.checked = !checkMarkToggle.checked
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
   
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering{
+            return toDoList.filteredItems.count
+        }
         return toDoList.toDos.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
         
-        let item = toDoList.toDos[indexPath.row]
+        var item: ChecklistItem
+        
+        if isFiltering{
+            item = toDoList.filteredItems[indexPath.row]
+        }else{
+            item = toDoList.toDos[indexPath.row]
+        }
             configureText(for: cell, with: item)
             configureCheckmark(for: cell, with: item)
         UserDefaults.standard.set(try? PropertyListEncoder().encode(toDoList.toDos), forKey:"items")
@@ -113,18 +163,15 @@ class ChecklistViewController: UITableViewController {
         }else if segue.identifier == "EditItemSegue"{
             if let itemDetailViewController = segue.destination as? ItemDetailViewController {
                 if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell){
-                    let item = toDoList.toDos[indexPath.row]
+                    
+                    let item: ChecklistItem
+                    if isFiltering{
+                        item = toDoList.filteredItems[indexPath.row]
+                    }else{
+                        item = toDoList.toDos[indexPath.row]
+                    }
                     itemDetailViewController.itemToEdit = item
                     itemDetailViewController.delegate = self
-                }
-            }
-        } else if segue.identifier == "DeleteItem"{
-            if let addItemViewController = segue.destination as? ItemDetailViewController {
-                if let cell = sender as? UITableViewCell, //here we are getting the cell wich was tapped be the user with help sender and casting it into the UItableviewcell
-                   let indexPath = tableView.indexPath(for: cell) { //the indexPath where it was tapped
-                  let item = toDoList.toDos[indexPath.row] //get this item on detected position
-                    addItemViewController.itemToDelete = item //send this item to the property in additemviewcontroller
-                  addItemViewController.delegate = self
                 }
             }
         }
@@ -133,7 +180,18 @@ class ChecklistViewController: UITableViewController {
     
 }
 
-extension ChecklistViewController: ItemDetailViewControllerDelegate{
+extension ChecklistViewController: ItemDetailViewControllerDelegate, UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func filterContentForSearchText(_ serchText: String){
+        toDoList.filteredItems = toDoList.toDos.filter({(todo: ChecklistItem) -> Bool in
+            return todo.text.lowercased().contains(serchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
     func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated: true)
     }

@@ -14,9 +14,8 @@ class ToDoList{
    
     
     var toDos: [ChecklistItem] = []
-//   var userDefaultsArray: [String] = []
-//    var checkMarkUserDefaults: [Bool] = []
-      let defaults = UserDefaults.standard
+    var filteredItems: [ChecklistItem] = []
+    let defaults = UserDefaults.standard
     
     func loadData(){
        if let data = UserDefaults.standard.value(forKey:"items") as? Data {
@@ -34,36 +33,6 @@ class ToDoList{
     }
     
     init() {
-        
-        
-        
-//        if let array = defaults.object(forKey: "items") as? [String]{
-//
-//            if let arrayOfCheckMarks = defaults.object(forKey: "checkmark") as? [Bool]{
-//                for i in arrayOfCheckMarks{
-//                    //print(arrayOfCheckMarks)
-//                    checkMarkUserDefaults.append(i)
-//
-//
-//
-//                }
-//            }else{
-//                for i in 1...array.count{
-//                    checkMarkUserDefaults.append(false)
-//
-//             }
-//           }
-//
-//
-//
-//            for i in array{
-//                let tasks: ChecklistItem
-//                tasks = ChecklistItem()
-//                tasks.text = i
-//                userDefaultsArray.append(i)
-//                toDos.append(tasks)
-//            }
-//        }
         
     }
     
