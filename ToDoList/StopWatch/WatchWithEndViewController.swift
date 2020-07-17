@@ -14,7 +14,6 @@ class WatchWithEndViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var labelForNums: UILabel!
     @IBOutlet weak var stopButton: UIButton!
-    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var hours = 0
@@ -22,6 +21,10 @@ class WatchWithEndViewController: UIViewController, UIPickerViewDataSource, UIPi
     var seconds = 0
     var time = Timer()
     var flagForStopButton = false
+    
+    var arrayOfSeconds: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]
+    var arrayOfMinutes: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]
+    var arrayOfHours: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,35 +36,22 @@ class WatchWithEndViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     func customizeNav(){
-     navigationController?.navigationBar.tintColor = .red
-     navigationController?.navigationBar.barTintColor = .black;           navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-
-
-    }
+        
+            navigationController?.navigationBar.tintColor = .red
+            navigationController?.navigationBar.barTintColor = .black;     navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        }
     
     func sideMunes(){
         
         if revealViewController() != nil{
-            menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rearViewRevealWidth = 250
-            
-            
-            
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                menuButton.target = revealViewController()
+                menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+                revealViewController().rearViewRevealWidth = 250
+                view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 
-            
-        }
+            }
         
-    }
-
-
-    
-    var arrayOfSeconds: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]
-    var arrayOfMinutes: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]
-    var arrayOfHours: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]
-    
-    
+        }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3

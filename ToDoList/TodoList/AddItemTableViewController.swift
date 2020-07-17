@@ -18,7 +18,7 @@ protocol ItemDetailViewControllerDelegate: class {
 
 
 class ItemDetailViewController: UITableViewController {
-     weak var delegate: ItemDetailViewControllerDelegate?
+    weak var delegate: ItemDetailViewControllerDelegate?
     weak var todoList: ToDoList?
     weak var itemToEdit: ChecklistItem?
     weak var itemToDelete: ChecklistItem?
@@ -40,7 +40,6 @@ class ItemDetailViewController: UITableViewController {
         }
     }
     
-    
     @IBAction func doneButton(_ sender: Any) {
         if let item = itemToEdit, let text = textField.text{
             item.text = text
@@ -60,6 +59,7 @@ class ItemDetailViewController: UITableViewController {
         }
         
     }
+    
     @IBAction func cancelButton(_ sender: Any) {
            delegate?.itemDetailViewControllerDidCancel(self)
        }

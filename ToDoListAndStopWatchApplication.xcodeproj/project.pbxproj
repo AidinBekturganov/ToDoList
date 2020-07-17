@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CA6243D676A8CF584E7C4BD /* Pods_ToDoListAndStopWatchApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69536D641EA744C6EBC61FAD /* Pods_ToDoListAndStopWatchApplication.framework */; };
 		CE34C0C224AA3F2800353B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34C0C124AA3F2800353B1A /* AppDelegate.swift */; };
 		CE34C0C424AA3F2800353B1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34C0C324AA3F2800353B1A /* SceneDelegate.swift */; };
 		CE34C0C624AA3F2800353B1A /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34C0C524AA3F2800353B1A /* ChecklistViewController.swift */; };
@@ -23,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69536D641EA744C6EBC61FAD /* Pods_ToDoListAndStopWatchApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListAndStopWatchApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A53FFD72303CDDF5BAE30EE /* Pods-ToDoListAndStopWatchApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListAndStopWatchApplication.debug.xcconfig"; path = "Target Support Files/Pods-ToDoListAndStopWatchApplication/Pods-ToDoListAndStopWatchApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		A052D49BA44C33C19644983B /* Pods-ToDoListAndStopWatchApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListAndStopWatchApplication.release.xcconfig"; path = "Target Support Files/Pods-ToDoListAndStopWatchApplication/Pods-ToDoListAndStopWatchApplication.release.xcconfig"; sourceTree = "<group>"; };
 		CE34C0BE24AA3F2800353B1A /* ToDoListAndStopWatchApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListAndStopWatchApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE34C0C124AA3F2800353B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE34C0C324AA3F2800353B1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,17 +51,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CA6243D676A8CF584E7C4BD /* Pods_ToDoListAndStopWatchApplication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5CD4345D6F47209A624705D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A53FFD72303CDDF5BAE30EE /* Pods-ToDoListAndStopWatchApplication.debug.xcconfig */,
+				A052D49BA44C33C19644983B /* Pods-ToDoListAndStopWatchApplication.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A115474BD87C357E47353247 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69536D641EA744C6EBC61FAD /* Pods_ToDoListAndStopWatchApplication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE34C0B524AA3F2800353B1A = {
 			isa = PBXGroup;
 			children = (
 				CE34C0C024AA3F2800353B1A /* ToDoList */,
 				CE34C0BF24AA3F2800353B1A /* Products */,
+				A115474BD87C357E47353247 /* Frameworks */,
+				5CD4345D6F47209A624705D1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE34C0D224AA3F2900353B1A /* Build configuration list for PBXNativeTarget "ToDoListAndStopWatchApplication" */;
 			buildPhases = (
+				77D789A1987B1FD0BED3F1D6 /* [CP] Check Pods Manifest.lock */,
 				CE34C0BA24AA3F2800353B1A /* Sources */,
 				CE34C0BB24AA3F2800353B1A /* Frameworks */,
 				CE34C0BC24AA3F2800353B1A /* Resources */,
+				CFB2A15B53321490BDCC69C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -182,6 +208,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77D789A1987B1FD0BED3F1D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToDoListAndStopWatchApplication-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFB2A15B53321490BDCC69C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ToDoListAndStopWatchApplication/Pods-ToDoListAndStopWatchApplication-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ToDoListAndStopWatchApplication/Pods-ToDoListAndStopWatchApplication-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ToDoListAndStopWatchApplication/Pods-ToDoListAndStopWatchApplication-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE34C0BA24AA3F2800353B1A /* Sources */ = {
@@ -339,6 +407,7 @@
 		};
 		CE34C0D324AA3F2900353B1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A53FFD72303CDDF5BAE30EE /* Pods-ToDoListAndStopWatchApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -360,6 +429,7 @@
 		};
 		CE34C0D424AA3F2900353B1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A052D49BA44C33C19644983B /* Pods-ToDoListAndStopWatchApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

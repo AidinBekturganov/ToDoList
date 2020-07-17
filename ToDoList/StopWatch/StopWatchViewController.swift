@@ -23,8 +23,7 @@ class StopWatchViewController: UIViewController {
     @IBOutlet weak var switchStartAndStop: UISwitch!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-   
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +77,7 @@ class StopWatchViewController: UIViewController {
     }
     
   
-   
-  
-    
+
     @IBAction func continueButton(_ sender: UIButton) {
         if !time.isValid || startButtonToEnableReset.currentBackgroundImage == #imageLiteral(resourceName: "play-button copy") {
             time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(StopWatchViewController.keepTimer), userInfo: nil, repeats: true)
@@ -98,24 +95,24 @@ class StopWatchViewController: UIViewController {
   
     
     @objc func keepTimer(){
-        
-        seconds += 1
-        if seconds > 60{
-            minutes += 1
-            seconds = 0
-        }
-        
-        if minutes > 60{
-            hours += 1
-            minutes = 0
-        }
-        
-        let secondString = seconds > 9 ? "\(seconds)" : "0\(seconds)"
-        let minuteString = minutes > 9 ? "\(minutes)" : "0\(minutes)"
-        let hourString = hours > 9 ? "\(hours)" : "0\(hours)"
 
-        timeLabel.text = "\(hourString):\(minuteString):\(secondString)"
-    }
+            seconds += 1
+            if seconds > 60{
+                    minutes += 1
+                    seconds = 0
+                }
+            
+            if minutes > 60{
+                    hours += 1
+                    minutes = 0
+                }
+            
+            let secondString = seconds > 9 ? "\(seconds)" : "0\(seconds)"
+            let minuteString = minutes > 9 ? "\(minutes)" : "0\(minutes)"
+            let hourString = hours > 9 ? "\(hours)" : "0\(hours)"
+
+            timeLabel.text = "\(hourString):\(minuteString):\(secondString)"
+        }
     
    
     
