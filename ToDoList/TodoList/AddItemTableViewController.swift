@@ -31,7 +31,7 @@ class ItemDetailViewController: UITableViewController {
     @IBOutlet weak var deleteButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textViewField: UITextView!
     
     @IBAction func deleteButton(_ sender: Any) {
         if let item = itemToEdit{  //the condition for detecting if this button will be used for editing
@@ -41,13 +41,13 @@ class ItemDetailViewController: UITableViewController {
     }
     
     @IBAction func doneButton(_ sender: Any) {
-        if let item = itemToEdit, let text = textField.text{
+        if let item = itemToEdit, let text = textViewField.text{
             item.text = text
             flag = false
             delegate?.itemDetailViewController(self, didFinishEditingItem: item, flag: flag)
         }else{
             if let item = todoList?.newToDo(){
-                if let textFieldText = textField.text{
+                if let textFieldText = textViewField.text{
                     item.text = textFieldText
                 }
                 item.checked = false
@@ -68,7 +68,9 @@ class ItemDetailViewController: UITableViewController {
         todoList?.loadData()
         if let item = itemToEdit{
             title = "Edit item"
-            textField.text = item.text
+            textViewField.text = item.text
+            addBarButton.isEnabled = true
+        } else if let text = textViewField.text{
             addBarButton.isEnabled = true
         }
         
@@ -77,7 +79,7 @@ class ItemDetailViewController: UITableViewController {
 
     
     override func viewWillAppear(_ animated: Bool) {
-        textField.becomeFirstResponder()
+        textViewField.becomeFirstResponder()
     }
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -86,25 +88,3 @@ class ItemDetailViewController: UITableViewController {
 
 }
 
-extension ItemDetailViewController: UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let oldText = textField.text,
-            let stringRange = Range(range, in: oldText) else{
-                return false
-        }
-        
-        let newText = oldText.replacingCharacters(in: stringRange, with: string)
-        if newText.isEmpty{
-            addBarButton.isEnabled = false
-        } else{
-            addBarButton.isEnabled = true
-        }
-        return true
-    }
-    
-}

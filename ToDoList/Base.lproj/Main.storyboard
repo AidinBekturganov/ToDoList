@@ -226,17 +226,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n0P-wC-JSH">
-                                                    <rect key="frame" x="15" y="4" width="313" height="34"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CRq-nL-QyK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="75"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.65443539619445801" green="0.92004972696304321" blue="0.83029085397720337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                                    <connections>
-                                                        <action selector="doneButton:" destination="aQh-gi-EiQ" eventType="editingDidEndOnExit" id="hO0-WM-eN2"/>
-                                                        <outlet property="delegate" destination="aQh-gi-EiQ" id="tzQ-Ju-r1M"/>
-                                                    </connections>
-                                                </textField>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.65443539619445801" green="0.92004972696304321" blue="0.83029085397720337" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -272,12 +269,12 @@
                         <outlet property="addBarButton" destination="PRw-pA-xqi" id="SRe-WD-oNW"/>
                         <outlet property="cancelBarButton" destination="2G1-7X-f01" id="sez-lk-JDl"/>
                         <outlet property="deleteButtonOutlet" destination="khq-e0-IMN" id="nbR-1f-Mga"/>
-                        <outlet property="textField" destination="n0P-wC-JSH" id="eb5-yh-qdI"/>
+                        <outlet property="textViewField" destination="CRq-nL-QyK" id="0wO-or-40v"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Hg-xK-lMX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1634" y="72"/>
+            <point key="canvasLocation" x="1632.8" y="71.514242878560722"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nqr-GK-eZl">
